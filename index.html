@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 문서의 문자 인코딩 설정 (한글 깨짐 방지용) -->
+  <meta charset="UTF-8">
+  <!-- 화면 크기에 맞춰 반응형으로 보여주는 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 브라우저 탭에 표시될 제목 -->
+  <title>Nestery Layout Preview</title>
+
+  <style>
+    /* 🌿 1. CSS 전역 변수(색상, 크기 등 미리 저장) */
+    :root {
+      --max: 1200px;             /* 페이지 최대 폭 (가운데 정렬 기준) */
+      --radius: 16px;            /* 모서리 둥근 정도 */
+      --ink: #1f1f1f;            /* 기본 글자색 */
+      --muted: #6f6f6f;          /* 연한 글자색 */
+      --line: #e8e8e8;           /* 선/테두리 색 */
+      --cream: #f7f5f2;          /* 밝은 배경색 */
+      --accent: #4d6b5d;         /* 포인트 색 (예: 버튼 색) */
+      --accent-2: #b99470;       /* 보조 포인트 색 */
+    }
+
+    /* 🧹 2. CSS 초기화 (브라우저 기본 여백 제거) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* 패딩과 보더를 width 계산에 포함 */
+    }
+
+    /* 🩶 3. 기본 폰트와 색상 지정 */
+    body {
+      font-family: Pretendard, sans-serif; /* 기본 글꼴 */
+      color: var(--ink);                   /* 글자색은 위에서 저장한 ink */
+      line-height: 1.6;                    /* 줄 간격 */
+    }
+
+    /* 링크 밑줄 없애기 + 기본 색 유지 */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 🧱 4. 공통 섹션 스타일 (header, section, footer 공통 규칙) */
+    header, section, footer {
+      padding: 60px 0;              /* 위아래 여백 */
+      display: flex;                /* 가운데 정렬을 위한 flex 사용 */
+      justify-content: center;      /* 가로 가운데 정렬 */
+      align-items: center;          /* 세로 가운데 정렬 */
+      font-size: 2rem;              /* 글자 크기 크게 (임시 표시용) */
+      font-weight: 600;             /* 글자 두껍게 */
+    }
+
+    /* 🧭 헤더는 항상 위에 붙어 있게 (sticky) 설정 */
+    header {
+      background: #f0f0f0;          /* 연한 회색 배경 */
+      position: sticky;             /* 스크롤해도 화면 상단에 고정 */
+      top: 0;                       /* 화면 최상단에 고정 위치 */
+      z-index: 100;                 /* 다른 요소보다 위로 배치 */
+    }
+
+    /* 섹션 배경색 번갈아가며 다르게 (시각 구분용) */
+    section:nth-child(odd) { background: #f9f9f9; }  /* 홀수번째 섹션 */
+    section:nth-child(even) { background: #eee; }    /* 짝수번째 섹션 */
+
+    /* 🦶 푸터는 어두운 배경 + 흰 글자 */
+    footer {
+      background: #222;
+      color: #fff;
+    }
+
+    /* 🧩 container: 내용을 가운데로 모아주는 공통 클래스 */
+    .container {
+      width: 100%;               /* 전체 너비 채우기 */
+      max-width: var(--max);     /* 하지만 최대 1200px까지만 */
+      margin: 0 auto;            /* 가운데 정렬 */
+      text-align: center;        /* 텍스트 가운데 정렬 */
+    }
+
+    /* 📱 반응형 (화면이 줄어들 때 글자 크기 줄이기) */
+    @media (max-width: 990px) {
+      header, section, footer {
+        font-size: 1.5rem;
+        padding: 40px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      header, section, footer {
+        font-size: 1.2rem;
+        padding: 30px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🧭 헤더: 상단 고정 내비게이션 자리 -->
+  <header>
+    <div class="container">HEADER</div>
+  </header>
+
+  <!-- 📦 main: 페이지의 주요 내용 부분 -->
+  <main>
+    <!-- 각 섹션은 나중에 실제 내용이 들어올 공간 -->
+    <section id="hero">
+      <div class="container">HERO SECTION</div>
+    </section>
+
+    <section id="intro">
+      <div class="container">INTRO SECTION</div>
+    </section>
+
+    <section id="story">
+      <div class="container">STORY / CRAFT SECTION</div>
+    </section>
+
+    <section id="team">
+      <div class="container">TEAM / ARTISAN SECTION</div>
+    </section>
+
+    <section id="shop">
+      <div class="container">SHOP SECTION</div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">GALLERY SECTION</div>
+    </section>
+
+    <section id="faq">
+      <div class="container">FAQ SECTION</div>
+    </section>
+  </main>
+
+  <!-- 🦶 푸터: 사이트 맨 아래 영역 -->
+  <footer>
+    <div class="container">FOOTER</div>
+  </footer>
+</body>
+</html>
