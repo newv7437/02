@@ -1,0 +1,63 @@
+/* 🌿 M0: 전역 CSS 변수(Design Tokens) — 이후 단계에서 재사용 */
+:root {
+  --max: 1200px;             /* 페이지 최대 폭 (가운데 정렬 기준) */
+  --radius: 16px;            /* 모서리 둥근 정도 */
+  --ink: #1f1f1f;            /* 기본 글자색 */
+  --muted: #6f6f6f;          /* 연한 글자색 */
+  --line: #e8e8e8;           /* 선/테두리 색 */
+  --cream: #f7f5f2;          /* 밝은 배경색 */
+  --accent: #4d6b5d;         /* 포인트 색 (예: 버튼 색) */
+  --accent-2: #b99470;       /* 보조 포인트 색 */
+}
+
+/* =========================
+   M1: 레이아웃 뼈대 설정
+========================= */
+
+/* 기본 세팅 */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--cream);
+  font-family: "Pretendard", sans-serif;
+  line-height: 1.6;
+}
+
+/* 공통 컨테이너 */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 공통 섹션 간격 */
+.site-header,
+.hero,
+.section,
+.site-footer {
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+
+.site-header {
+  border-top: none;
+}
+
+/* 개발 확인용 박스 (임시) */
+.dev-outline {
+  display: grid;
+  place-content: center;
+  height: 120px;
+  background-color: #fff;
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-weight: bold;
+  letter-spacing: 0.4px;
+}
